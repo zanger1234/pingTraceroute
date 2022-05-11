@@ -76,11 +76,10 @@ public class MainActivity extends AppCompatActivity {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
-            String outputJSON = "{\"test\":\"test\"}";//
+            String outputJSON = "{\"test\":\"test\"}";
             byte[] out = outputJSON.getBytes(StandardCharsets.UTF_8);
             OutputStream stream = connection.getOutputStream();
             ((OutputStream) stream).write(out);
-            System.out.println(connection.getResponseCode() + " " + connection.getResponseMessage()); // THis is optional
             connection.disconnect();
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), "cannot reach server", Toast.LENGTH_SHORT).show();
