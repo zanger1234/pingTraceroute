@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,16 +22,22 @@ import java.util.Objects;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okio.BufferedSink;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    JSONObject jsonObject = new JSONObject();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         OkHttpClient okHttpClient = new OkHttpClient();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -48,19 +56,25 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            RequestBody formBody = new FormBody.Builder().add("sample", "text").build();
-            Request request = new Request.Builder().url("http://192.168.100.2:5000/").post(formBody).build();
-            okHttpClient.newCall(request).enqueue(new Callback() {
+            String jsonString ="{\n" +
+                    "  \"ping\": {\n" +
+                    "    \"saif\": \"saif\",\n" +
+                    "    \"test\": \"test\"\n" +
+                    "  },\n" +
+                    "  \"string\": \"Hello World\"\n" +
+                    "}";
 
+            RequestBody body = RequestBody.create(jsonString,MediaType.parse("application/json"));
+            Request request = new Request.Builder().url("http://192.168.100.2:5000/").post(body).build();
+            okHttpClient.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NotNull Call call, @NotNull IOException e) {
                     runOnUiThread(() -> Toast.makeText(getApplicationContext(), "server down", Toast.LENGTH_SHORT).show());
                 }
                 @Override
                 public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                    if (Objects.requireNonNull(response.body()).string().equals("received")) {
-                        runOnUiThread(() -> Toast.makeText(getApplicationContext(), "data received", Toast.LENGTH_SHORT).show());
-                    }
+                    Objects.requireNonNull(response.body()).string();
+                    runOnUiThread(() -> Toast.makeText(getApplicationContext(), "data received", Toast.LENGTH_SHORT).show());
                 }
             });
         });
