@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void sendRequest(String backendURL){
+    public void sendRequest(String backendURL){
         try{
             URL url = new URL(backendURL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(connection.getResponseCode() + " " + connection.getResponseMessage()); // THis is optional
             connection.disconnect();
         }catch (Exception e){
-            System.out.println("Failed successfully");
+            Toast.makeText(getApplicationContext(), "cannot reach server", Toast.LENGTH_SHORT).show();
         }
     }
 
