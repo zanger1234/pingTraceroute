@@ -2,27 +2,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TraceActivity" >
+    tools:context=".TraceActivity"
+    style="@style/AppTheme"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
 
     <EditText
-        android:id="@+id/editTextPing"
+        android:id="@+id/editTextTraceRt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:clickable="true"
         android:ems="10"
+        android:focusable="true"
+        android:textColorHint="#A0A0A0"
+        android:fontFamily="@font/frutiger_ce_45_light"
         android:hint="@string/placeholder"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="@color/colorText" />
 
     <Button
         android:id="@+id/buttonLaunch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextPing"
+        android:layout_below="@+id/editTextTraceRt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="@string/activity_button" />
+        android:background="@color/color1"
+        android:clickable="true"
+        android:focusable="true"
+        android:textAllCaps="false"
+        android:fontFamily="@font/frutiger_ce_65_bold"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/activity_button"
+        android:textColor="@color/colorText" />
 
+    <Button
+        android:id="@+id/buttonPing"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/color1"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/frutiger_ce_65_bold"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="Ping"
+        android:textAllCaps="false"
+        android:textColor="@color/colorText" />
+
+    <ImageView
+        android:layout_width="121dp"
+        android:layout_height="109dp"
+        android:foreground="@mipmap/umniah_launcher_foreground" />
     <ListView
         android:id="@+id/listViewTraceroute"
         android:layout_width="match_parent"

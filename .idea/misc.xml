@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/font-v26/umniah.xml" value="0.26197916666666665" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/font/umniah.xml" value="0.23287037037037037" />
         <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_trace.xml" value="0.2" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_trace.xml" value="0.33" />
         <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/item_list_trace.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/recycler_item_trace.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.13" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.13" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/mipmap-anydpi-v26/umniah launcher.xml" value="0.13" />
+        <entry key="..\:/Users/Saif/AndroidStudioProjects/MyApplication2/app/src/main/res/mipmap-anydpi-v26/umniah_launcher.xml" value="0.13" />
         <entry key="..\:/Users/saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_trace.xml" value="0.33" />
         <entry key="..\:/Users/saif/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/item_list_trace.xml" value="0.358695652173913" />
       </map>

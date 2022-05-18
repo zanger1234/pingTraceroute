@@ -10,11 +10,11 @@
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/umniah_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/umniah_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:exported="true">

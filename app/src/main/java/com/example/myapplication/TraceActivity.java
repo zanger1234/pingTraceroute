@@ -25,7 +25,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
@@ -48,6 +47,8 @@ public class TraceActivity extends Activity {
 	public static final String INTENT_TRACE = "INTENT_TRACE";
 
 	private Button buttonLaunch;
+	private Button buttonPing;
+
 	private EditText editTextPing;
 	private ProgressBar progressBarPing;
 	private ListView listViewTraceroute;
@@ -66,11 +67,11 @@ public class TraceActivity extends Activity {
 
 		this.tracerouteWithPing = new TracerouteWithPing(this);
 		this.traces = new ArrayList<>();
-
-		this.buttonLaunch = (Button) this.findViewById(R.id.buttonLaunch);
-		this.editTextPing = (EditText) this.findViewById(R.id.editTextPing);
-		this.listViewTraceroute = (ListView) this.findViewById(R.id.listViewTraceroute);
-		this.progressBarPing = (ProgressBar) this.findViewById(R.id.progressBarPing);
+		this.buttonLaunch = this.findViewById(R.id.buttonLaunch);
+		this.buttonPing = this.findViewById(R.id.buttonPing);
+		this.editTextPing = this.findViewById(R.id.editTextTraceRt);
+		this.listViewTraceroute = this.findViewById(R.id.listViewTraceroute);
+		this.progressBarPing = this.findViewById(R.id.progressBarPing);
 
 		initView();
 		}
@@ -88,7 +89,12 @@ public class TraceActivity extends Activity {
 				tracerouteWithPing.executeTraceroute(editTextPing.getText().toString(), maxTtl);
 			}
 		});
+		buttonPing.setOnClickListener(v -> {
+			Intent intent = new Intent(TraceActivity.this, MainActivity.class);
+			startActivity(intent);
+			finish();
 
+		});
 		traceListAdapter = new TraceListAdapter(getApplicationContext());
 		listViewTraceroute.setAdapter(traceListAdapter);
 	}
@@ -110,7 +116,7 @@ public class TraceActivity extends Activity {
 
 	public class TraceListAdapter extends BaseAdapter {
 
-		private Context context;
+		private final Context context;
 
 		public TraceListAdapter(Context c) {
 			context = c;
@@ -135,10 +141,10 @@ public class TraceActivity extends Activity {
 				LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				convertView = vi.inflate(R.layout.item_list_trace, null);
 
-				TextView textViewNumber = (TextView) convertView.findViewById(R.id.textViewNumber);
-				TextView textViewIp = (TextView) convertView.findViewById(R.id.textViewIp);
-				TextView textViewTime = (TextView) convertView.findViewById(R.id.textViewTime);
-				ImageView imageViewStatusPing = (ImageView) convertView.findViewById(R.id.imageViewStatusPing);
+				TextView textViewNumber = convertView.findViewById(R.id.textViewNumber);
+				TextView textViewIp = convertView.findViewById(R.id.textViewIp);
+				TextView textViewTime = convertView.findViewById(R.id.textViewTime);
+				ImageView imageViewStatusPing = convertView.findViewById(R.id.imageViewStatusPing);
 
 				holder = new ViewHolder();
 				holder.textViewNumber = textViewNumber;
